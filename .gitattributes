@@ -1,2 +1,12 @@
-* text=auto eol=lf
-*.sh text eol=lf
+*script
+*ts
+*name-type : Server-error ; 
+   - Error.['Tri-net' , Ep-[Code-deck] , [Keep-B: Code.Net]]
+
+
+Main-Info : palm-server : {
+Ep-form[@:Section:- E:tsring ,  [Ts-script , [Point:o] , [Guardinel , C - + [
+
+F + [Stress,relator,concept,AC] ()=> off-form[2-way.Nyc: sync : Cb-lb]
+]]]]
+}
