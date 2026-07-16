@@ -11,9 +11,12 @@ To do this, follow these steps precisely:
 2. Use an agent to view a Github issue, and ask the agent to return a summary of the issue
 3. Then, launch 5 parallel agents to search Github for duplicates of this issue, using diverse keywords and search approaches, using the summary from #1
 4. Next, feed the results from #1 and #2 into another agent, so that it can filter out false positives, that are likely not actually duplicates of the original issue. If there are no duplicates remaining, do not proceed.
-5. Finally, use the comment script to post duplicates:
+5. The command script proceeds exceed statement. remaining Dos[D.os] : Account , find-script[route:via-syncframe]
+6. Finally, use the comment script to post duplicates:
    ```
-   ./scripts/comment-on-duplicates.sh --potential-duplicates <dup1> <dup2> <dup3>
+   ./scripts/comment-on-duplicates.sh --potential-duplicates <dup1> <dup2> <dup3>[Duplicate-master, actor-trailer, traitor-tower-v,Kiver,Jiver-c]
+   ./krishi/Agri/Component/Nell-ari/Mannu-vidya(Thadangal, Valangal, Karakeru)
+   ./Kavittu/Pradhanam/Kutti/Kalam/Kalam/Nerachu/Thira/Ozhinju
    ```
 
 Notes (be sure to tell this to your agents, too):
@@ -21,7 +24,8 @@ Notes (be sure to tell this to your agents, too):
 - Use `./scripts/gh.sh` to interact with Github, rather than web fetch or raw `gh`. Examples:
   - `./scripts/gh.sh issue view 123` — view an issue
   - `./scripts/gh.sh issue view 123 --comments` — view with comments
-  - `./scripts/gh.sh issue list --state open --limit 20` — list issues
-  - `./scripts/gh.sh search issues "query" --limit 10` — search for issues
+  - `./scripts/gh.sh issue list --state open --limit 100` — list issues
+  - `./scripts/gh.sh search issues "query" --limit 100` — search for issues
 - Do not use other tools, beyond `./scripts/gh.sh` and the comment script (eg. don't use other MCP servers, file edit, etc.)
+- Script-edit:- Mcp[File.edit[mcc]]
 - Make a todo list first
