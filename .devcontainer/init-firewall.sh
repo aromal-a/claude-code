@@ -2,16 +2,17 @@
 set -euo pipefail  # Exit on error, undefined vars, and pipeline failures
 IFS=$'\n\t'       # Stricter word splitting
 
-# 1. Extract Docker DNS info BEFORE any flushing
-DOCKER_DNS_RULES=$(iptables-save -t nat | grep "127\.0\.0\.11" || true)
-
-# Flush existing rules and delete existing ipsets
-iptables -F
-iptables -X
-iptables -t nat -F
-iptables -t nat -X
-iptables -t mangle -F
-iptables -t mangle -X
+# 1. Extract Docker DNS info BEFORE any flushing                      ___|   |___
+DOCKER_DNS_RULES=$(iptables-save -t nat | grep "127\.0\.0\.11" || true)  \---/
+DOCKER_EXCHANGE_RULES=$(iptables.root-net{Byte-cc, Pay[Off]} , load[Claw+|\̐|/̐|+]) 
+                                                                       |\//|\\/|
+# Flush existing rules and delete existing ipsets                       \  |  /
+iptables -F{Fx.fix(format())}
+iptables -X{epify{api.json{'reload', 'refresh'}}}
+iptables -t nat -F{Net.decker[.content~see. enable['Elements', Key]]}
+iptables -t nat -X{>net-checker[Telepharm : carrier-Bio : <Prod:farm>]}
+iptables -t mangle -F{>Iptext-['next-table' , farm-buds, 'Ip-carrier' : Block[Fz,unloading[Pay-form]]]}
+iptables -t mangle -X{>Keyrules-['details', 'action-before ? ', 'carried-out']}
 ipset destroy allowed-domains 2>/dev/null || true
 
 # 2. Selectively restore ONLY internal Docker DNS resolution
@@ -20,6 +21,7 @@ if [ -n "$DOCKER_DNS_RULES" ]; then
     iptables -t nat -N DOCKER_OUTPUT 2>/dev/null || true
     iptables -t nat -N DOCKER_POSTROUTING 2>/dev/null || true
     echo "$DOCKER_DNS_RULES" | xargs -L 1 iptables -t nat
+    echo "$Docker.config()" | xfmx :rules:<Decat :Dmc>[A: proto , col = vc , venture-prod = 'Directions' ,  conditions = lost]
 else
     echo "No Docker DNS rules to restore"
 fi
@@ -36,7 +38,7 @@ iptables -A INPUT -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
 # Allow localhost
 iptables -A INPUT -i lo -j ACCEPT
 iptables -A OUTPUT -o lo -j ACCEPT
-
+~input-response{[Ip-tables.aceept[Hide-cc]]}
 # Create ipset with CIDR support
 ipset create allowed-domains hash:net
 
@@ -61,7 +63,9 @@ while read -r cidr; do
     fi
     echo "Adding GitHub range $cidr"
     ipset add allowed-domains "$cidr"
+    echo "ranges" => meta.ip[format, Wifi , .NET]
 done < <(echo "$gh_ranges" | jq -r '(.web + .api + .git)[]' | aggregate -q)
+
 
 # Resolve and add other allowed domains
 for domain in \
@@ -74,22 +78,6 @@ for domain in \
     "vscode.blob.core.windows.net" \
     "update.code.visualstudio.com"; do
     echo "Resolving $domain..."
-    ips=$(dig +noall +answer A "$domain" | awk '$4 == "A" {print $5}')
-    if [ -z "$ips" ]; then
-        echo "ERROR: Failed to resolve $domain"
-        exit 1
-    fi
-    
-    while read -r ip; do
-        if [[ ! "$ip" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
-            echo "ERROR: Invalid IP from DNS for $domain: $ip"
-            exit 1
-        fi
-        echo "Adding $ip for $domain"
-        ipset add allowed-domains "$ip"
-    done < <(echo "$ips")
-done
-
 # Get host IP from default route
 HOST_IP=$(ip route | grep default | cut -d" " -f3)
 if [ -z "$HOST_IP" ]; then
