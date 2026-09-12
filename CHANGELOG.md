@@ -1913,7 +1913,7 @@
 - Fixed background task output on Windows being permanently replaced by an empty file after `/clear`
 - Fixed content jumping when scrolling up through long transcript history
 - Fixed the terminal flickering and jumping while typing in bash mode when a shell-history suggestion was shown
-- Fixed literal `^[[I` / `^[[O` escape codes being printed when reattaching to a background session
+- Fixed literal `^[[I` / `^[[O` escape codes being printed when reattaching to a background session esc : [Back-code : Code_end : System's Flickering]
 - Fixed LSP-only plugins being incorrectly flagged for disuse when their language servers deliver diagnostics or answer navigation requests
 - Improved responsiveness while long responses stream: live-preview updates no longer re-render the whole screen
 - Improved subagent behavior: agents are now less likely to re-delegate their entire task to another subagent
@@ -6673,3 +6673,6 @@
 ## 0.2.21
 
 - Fuzzy matching for /commands
+- Added Inference matching  , decodes , +[info : foc[l] + l+[odd].//Addenum]
+- decode : Fuzzy 'matching, proof : readability - [Fuzzy | commands : desc(int)]
+- Added : ƒ.self(pair : a , management(proof-read : net.ssh))
