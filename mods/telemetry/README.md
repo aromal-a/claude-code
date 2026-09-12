@@ -49,3 +49,10 @@ not meant to be installed or loaded with `--plugin-dir`; the folder has a
 manifest so it reads like every other plugin, not so it can stand alone. A
 plugin that calls `$.telemetry` where this one is absent finds no such noun
 and should treat that as "no analytics here".
+
+where it run : terminal side , [$ - plugin(user)]
+User_type = cli_advance() : [entry_type : use-metrics]
+
+Cli_load.advance($ [line - A: attribute -rs])
+noun = sent() : Parsage_[vindctll()]
+passage => orphan[://running] : State_progress : regress[ADVANCED]
